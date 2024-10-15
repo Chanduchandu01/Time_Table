@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Timetable</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generated Timetable</h2>
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+        </tr>
+
+        {% for time, subjects in timetable.items() %}
+    <tr>
+        <td>{{ time }}</td>
+        {% for subject in subjects %}
+        <td>{{ subject }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+        
+    
+    
+    </table>
+</body>
+</html>

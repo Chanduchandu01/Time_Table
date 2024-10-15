@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Subjects and Faculty</title>
+</head>
+<body>
+    <h2>Add Subjects and Faculty for {{ department }} - Year {{ year }} Section {{ section }}</h2>
+    <form action="/submit_subjects" method="post">
+        <input type="hidden" name="department" value="{{ department }}">
+        <input type="hidden" name="year" value="{{ year }}">
+        <input type="hidden" name="section" value="{{ section }}">
+        <div id="subject_container">
+            <div class="subject_entry">
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject[]" required><br>
+                <label for="faculty">Faculty:</label>
+                <input type="text" name="faculty[]" required><br>
+            
+            </div>
+        </div>
+        <button type="button" onclick="addSubject()">Add Another Subject</button><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function addSubject() {
+            var container = document.getElementById('subject_container');
+            var newEntry = document.createElement('div');
+            newEntry.className = 'subject_entry';
+            newEntry.innerHTML = `
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject[]" required><br>
+                <label for="faculty">Faculty:</label>
+                <input type="text" name="faculty[]" required><br>
+    
+            container.appendChild(newEntry);
+        }
+    
+    </script>
+</body>
+</html>
